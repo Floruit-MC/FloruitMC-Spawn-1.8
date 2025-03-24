@@ -1,0 +1,15 @@
+# Configurações para o sistema de teleporte em lotes do SpawnPlugin.
+# Este arquivo controla como os teleportes são processados em filas para evitar sobrecarga no servidor.
+
+# Número máximo de teleportes processados por tick.
+# - Um "tick" no Minecraft ocorre a cada 1/20 de segundo (50ms).
+# - Valores maiores aumentam a velocidade de processamento, mas podem causar lag se o servidor estiver sobrecarregado.
+# - Recomendado: 5-10 para servidores médios; ajuste conforme a capacidade do hardware.
+max-teleports-per-tick: 5
+
+# Intervalo em ticks entre cada execução da tarefa de teleporte em lotes.
+# - Define com que frequência a fila de teleportes é processada.
+# - Exemplo: 60 ticks = 3 segundos (20 ticks = 1 segundo).
+# - Valores menores aceleram o processamento, mas aumentam a carga no servidor.
+# - Recomendado: 20-60 ticks dependendo do número de jogadores e da desempenho desejada.
+batch-interval-ticks: 60

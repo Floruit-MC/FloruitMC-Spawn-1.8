@@ -1,0 +1,41 @@
+# messages.yml
+spawn:
+  no_permission_fallback:
+    - ""
+    - "&cVocê não pode teleportar diretamente para o fallback!"
+    - "&cUse /spawn para o spawn principal."
+    - ""
+  no_spawns_set: "&cO spawn principal e o spawn de fallback não estão definidos!"
+  spawn_not_set: "&cO {displayName} não está definido!"
+  teleport_cancelled: "&cO teleporte para o {displayName} foi cancelado!"
+  already_in_queue:
+    - ""
+    - "&cVocê já está na fila de teleporte!"
+    - "&cSua posição atual: &e#{position}"
+    - ""
+  added_to_queue:
+    - ""
+    - "&aSua solicitação de teleporte para o spawn foi adicionada à fila!"
+    - "&aVocê está na fila do Spawn com posição: &e#{position}"
+    - ""
+  error_adding_to_queue: "&cErro ao adicionar o teleporte à fila!"
+  only_players: "&cEste comando só pode ser usado por jogadores!"
+  not_in_queue: "&eVocê não está na fila de teleporte!"
+  queue_position: "&aSua posição na fila de teleporte: &f{position}"
+  on_cooldown: "&cAguarde &e{time} segundos &cantes de usar o comando novamente!"
+
+config:
+  metrics_reload_failed: "&cFalha ao recarregar a configuração de métricas (metrics.yml)!"
+  batch_reload_failed: "&cFalha ao recarregar a configuração de batch (batch.yml)!"
+  reload_success:
+    - ""
+    - "&aConfigurações recarregadas com sucesso!"
+    - ""
+    - "&fNovo valor de max-teleports-per-tick: &a{maxTeleports}"
+    - "&fMétricas de desempenho: &a{metricsStatus}"
+    - ""
+  info:
+    - ""
+    - "&fValor no batch.yml (max-teleports-per-tick): &a{maxTeleports}"
+    - "&fMétricas de desempenho (metrics.yml): &a{metricsStatus}"
+    - ""
