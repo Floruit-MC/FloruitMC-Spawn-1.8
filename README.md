@@ -1,92 +1,95 @@
-# 🤭 Spawn - Teleporte com Estilo e Controle
-
-O **SpawnPlugin** é um plugin leve e eficiente focado em oferecer um sistema completo de **teleporte para spawn** com **cooldown**, **fila de execução (batch)** e **suporte a spawns personalizados**, incluindo fallback. Ideal para servidores que buscam controle, desempenho e integração com outros sistemas.
 
 ---
 
-## ⚙️ Configurações Gerais
+# 🤭 SpawnPlugin – Teleporte com Estilo e Controle
 
-| Configuração                                 | Estado        |
-|---------------------------------------------|---------------|
-| 🧊 Cooldown global do comando `/spawn`       | Personalizável (`cooldown.yml`) |
-| ⏳ Teleporte em lote por tick (batching)     | Personalizável (`batch.yml`) |
-| 🔄 Reload dinâmico de configurações          | Suportado     |
-| 📊 Métricas de performance                   | Ativáveis (`metrics.yml`) |
-| 🧠 Eventos customizados                      | Disponíveis para integração |
-| 🤭 Spawn principal e fallback                | Suporte total |
-| 🥵 Fila de execução de teleportes            | Otimizada por prioridade |
+O **SpawnPlugin** é uma solução leve, moderna e altamente personalizável para comandos de `/spawn` em servidores Minecraft. Ele oferece **cooldown inteligente**, **fila de execução otimizada**, **teleporte em lote (batching)** e suporte a múltiplos spawns – incluindo fallback. Perfeito para servidores que buscam desempenho, segurança e integração fluida com outros sistemas.
 
 ---
 
-## 🛡️ Sistema de Proteção no Teleporte
+## ⚙️ Funcionalidades Principais
 
-| Recurso                                      | Estado        |
-|---------------------------------------------|---------------|
-| 📦 Cancelamento por outros plugins           | Permitido via evento |
-| ❌ Execução de múltiplos teleportes          | Prevenido por fila inteligente |
-| 📉 Carga reduzida por batching               | Ativado automaticamente |
-| ✅ Verificações de permissão integradas      | Sim |
+| Recurso                                    | Status                                   |
+| ------------------------------------------ | ---------------------------------------- |
+| 🧊 Cooldown do `/spawn`                    | Totalmente configurável (`cooldown.yml`) |
+| ⏳ Teleporte em lote (batch por tick)       | Personalizável (`batch.yml`)             |
+| 🔄 Reload das configurações em tempo real  | Suportado                                |
+| 📊 Métricas de desempenho                  | Ativáveis (`metrics.yml`)                |
+| 🧠 Eventos customizados para integração    | Disponíveis                              |
+| 🤭 Suporte a spawn principal e de fallback | Incluído                                 |
+| 🥵 Fila de teleporte com prioridade        | Otimizada e automática                   |
+
+---
+
+## 🛡️ Sistema de Segurança e Controle
+
+| Proteção                                     | Descrição                       |
+| -------------------------------------------- | ------------------------------- |
+| 📦 Cancelamento por outros plugins           | Permitido via eventos           |
+| ❌ Prevenção de múltiplos teleportes seguidos | Gerenciado por fila             |
+| 📉 Redução de carga do servidor              | Via batching automático         |
+| ✅ Verificação de permissões                  | Integrada com sistemas externos |
 
 ---
 
 ## 💬 Comandos Disponíveis
 
-### 🎮 Comandos Gerais
+### 🎮 Para Jogadores
 
-| Comando                   | Função                                                        | Permissão                    |
-|---------------------------|---------------------------------------------------------------|------------------------------|
-| `/spawn`                  | Teleporta o jogador para o spawn principal                   | -                            |
-| `/spawn fallback`         | Teleporta para o spawn de fallback                           | `spawn.teleport.fallback`    |
-| `/spawn fila`             | Mostra sua posição na fila de teleporte                      | -                            |
+| Comando           | Descrição                                    | Permissão                 |
+| ----------------- | -------------------------------------------- | ------------------------- |
+| `/spawn`          | Teleporta para o spawn principal             | *Acesso livre*            |
+| `/spawn fallback` | Vai para o spawn de fallback, se configurado | `spawn.teleport.fallback` |
+| `/spawn fila`     | Exibe sua posição atual na fila de teleporte | *Acesso livre*            |
 
-### 🛠️ Comandos Administrativos
+### 🛠️ Para Administradores
 
-| Comando                   | Função                                                        | Permissão                    |
-|---------------------------|---------------------------------------------------------------|------------------------------|
-| `/setspawn <spawn|fallback>` | Define a localização atual como spawn                       | `spawn.set`                  |
-| `/deletespawn <spawn|fallback>` | Remove o spawn definido                                  | `spawn.delete`               |
-| `/listspawn`              | Lista os spawns disponíveis                                  | `spawn.list`                 |
-| `/spawnconfig`            | Recarrega as configurações do plugin                         | `spawn.reload`               |
-| `/spawnconfig info`       | Mostra dados do batching e métricas                          | `spawn.batchinfo`            |
+| Comando                | Descrição                           | Permissão                                          |                |
+| ---------------------- | ----------------------------------- | -------------------------------------------------- | -------------- |
+| \`/setspawn \<spawn    | fallback>\`                         | Define o local atual como spawn principal ou extra | `spawn.set`    |
+| \`/deletespawn \<spawn | fallback>\`                         | Remove um spawn registrado                         | `spawn.delete` |
+| `/listspawn`           | Lista todos os spawns registrados   | `spawn.list`                                       |                |
+| `/spawnconfig`         | Recarrega as configurações          | `spawn.reload`                                     |                |
+| `/spawnconfig info`    | Exibe status do batching e métricas | `spawn.batchinfo`                                  |                |
 
 ---
 
-## 📟 Arquivos de Configuração
+## 🧾 Arquivos de Configuração
 
 ### 📄 `cooldown.yml`
+
+Define o tempo de espera entre usos do comando `/spawn`:
 
 ```yaml
 spawn:
   cooldown-seconds: 10
 ```
 
-Define o tempo de espera entre usos do comando `/spawn`.
-
 ---
 
 ### 📄 `batch.yml`
+
+Controla quantos jogadores podem ser teleportados por tick:
 
 ```yaml
 max-teleports-per-tick: 5
 ```
 
-Controla quantos jogadores podem ser teleportados por tick, evitando lag.
-
 ---
 
 ### 📄 `metrics.yml`
+
+Ativa ou desativa a coleta de dados internos:
 
 ```yaml
 performance-metrics-enabled: true
 ```
 
-Ativa/desativa a coleta de métricas internas de uso.
-
 ---
 
 ### 📄 `messages.yml`
 
-Mensagens personalizáveis com placeholders. Exemplo:
+Personalize todas as mensagens do plugin com placeholders dinâmicos:
 
 ```yaml
 spawn:
@@ -102,9 +105,9 @@ config:
 
 ---
 
-## ✅ Observações
+## ✅ Requisitos e Recomendações
 
-- Recomenda-se o uso com plugins de permissões como **LuckPerms**
-- O plugin é compatível com servidores Paper 1.16+ ou superiores
-- Ideal para servidores **Survival**, **Lobby**, **MiniGames** e **Roleplay**
-
+* 🔐 Compatível com sistemas de permissão como **LuckPerms**
+* 🧩 Pode ser integrado com outros plugins via eventos
+* 🧪 Compatível com servidores **Paper** 1.16+ ou superiores
+* 🎮 Ideal para servidores **Survival**, **Lobby**, **MiniGames**, **RPG** e **Roleplay**
